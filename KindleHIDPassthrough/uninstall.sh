@@ -31,6 +31,10 @@ DELETE FROM handlerIds WHERE handlerId='$APP_ID';
 EOF
 fi
 
+# ---- Remove KOReader plugin (if installed) ----
+
+rm -rf /mnt/us/koreader/plugins/hidpassthrough.koplugin
+
 # ---- Remove files ----
 
 rm -rf "$INSTALL_DIR"
