@@ -38,6 +38,14 @@ mkdir -p "$INSTALL_DIR/cache"
 cp "$INSTALL_DIR/illusion/BTManager.sh" /mnt/us/documents/BTManager.sh
 chmod +x /mnt/us/documents/BTManager.sh
 
+# ---- Install KOReader plugin (if KOReader is installed) ----
+
+if [ -d /mnt/us/koreader/plugins/ ] && [ -d "$INSTALL_DIR/koreader-plugin/hidpassthrough.koplugin" ]; then
+    mkdir -p /mnt/us/koreader/plugins/hidpassthrough.koplugin
+    cp -r "$INSTALL_DIR/koreader-plugin/hidpassthrough.koplugin/." \
+        /mnt/us/koreader/plugins/hidpassthrough.koplugin/
+fi
+
 # ---- Start daemon ----
 
 /sbin/initctl start hid-passthrough || true
